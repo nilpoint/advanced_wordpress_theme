@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>WordPress 高级主题</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php bloginfo( 'name' ); ?></title>
+  <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
+  <?php wp_head(  ); ?>
 </head>
-<body>
+<body <?php body_class(  ); ?>>
   <header>
     <div class="container">
       <h1>
-        <a href="index.html">WordPress 高级主题</a>
-        <small>又一个 WordPress 主题</small>
+        <a href="index.html"><?php bloginfo( 'name' ); ?></a>
+        <small><?php bloginfo( 'description' ); ?></small>
       </h1>
       <div class="h_right">
-        <form>
-          <input type="text" placeholder="搜索...">
+        <form method="get" action="<?php esc_url( home_url( '/' ) ); ?>">
+          <input type="text" name="s" placeholder="搜索...">
         </form>
       </div>
     </div>
@@ -73,5 +76,6 @@
       </div>
     </div>
   </footer>
+  <?php wp_footer(  ); ?>
 </body>
 </html>

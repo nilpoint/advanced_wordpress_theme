@@ -23,11 +23,10 @@
   </header>
   <nav class="nav main-nav">
     <div class="container">
-      <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="about.html">关于</a></li>
-        <li><a href="#">服务</a></li>
-      </ul>
+      <?php 
+        $args = array('theme_location' => 'primary' );
+      ?>
+      <?php wp_nav_menu( $args ); ?>
     </div>
   </nav>
   <div class="container content">

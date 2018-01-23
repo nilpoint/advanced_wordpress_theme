@@ -11,7 +11,7 @@
   <header>
     <div class="container">
       <h1>
-        <a href="index.html"><?php bloginfo( 'name' ); ?></a>
+        <a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a>
         <small><?php bloginfo( 'description' ); ?></small>
       </h1>
       <div class="h_right">
@@ -31,24 +31,36 @@
   </nav>
   <div class="container content">
     <div class="main block">
-      <article class="post">
-        <h2>博客文章1</h2>
-        <p class="meta">Posted at 13:00 on Jan 22 by admin</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare, enim nec accumsan pretium, nibh est pharetra purus, a scelerisque purus neque eget lorem. Vestibulum nisl dui, efficitur vel ultricies id, bibendum et odio. Integer sagittis urna at lorem mollis tempor. Nam aliquet risus nisi, non laoreet tellus placerat ut. Aliquam finibus convallis magna eget blandit. Donec consectetur ex dui, quis cursus risus pharetra quis. Aenean ornare eros a sapien finibus dictum. Pellentesque pharetra in mauris eu facilisis. Sed eu tortor sit amet risus cursus congue. Nulla ut dui lobortis nisl finibus volutpat.</p>
-        <a class="button" href="#">更多</a>
-      </article>
-      <article class="post">
-          <h2>博客文章2</h2>
-          <p class="meta">Posted at 13:00 on Jan 22 by admin</p>
-          <p>Integer accumsan dapibus ipsum et rutrum. Donec pharetra nibh mi, at varius est ultrices ut. Aenean convallis pharetra orci vitae maximus. Integer dapibus ligula massa, et scelerisque odio cursus vitae. Aenean ac risus ut eros rutrum auctor. Suspendisse pharetra elit at est pharetra, ut porta turpis ullamcorper. In tellus magna, mollis at ullamcorper sed, pharetra vitae neque. Aliquam egestas ut lectus sit amet auctor. Phasellus in felis purus. Curabitur vitae tincidunt tortor. Maecenas eu varius mauris. Aliquam molestie vulputate ipsum eget egestas. Donec a risus maximus, pharetra justo et, pulvinar ipsum. Nunc tempus dictum dolor, ac congue diam pellentesque eu. Aliquam dictum cursus euismod. Duis in euismod massa.</p>
-          <a class="button" href="#">更多</a>
-        </article>
-        <article class="post">
-            <h2>博客文章3</h2>
-            <p class="meta">Posted at 13:00 on Jan 22 by admin</p>
-            <p>Ut sit amet est lacinia, varius mauris et, mollis nulla. Vestibulum id gravida quam. Sed ac cursus orci. Nam laoreet, lacus ut dignissim bibendum, lectus urna molestie diam, non sollicitudin quam ante vel risus. Vestibulum posuere, justo quis vehicula facilisis, lacus eros finibus elit, sed imperdiet magna libero eget arcu. Fusce laoreet dolor id augue molestie lobortis. Maecenas porta eget nibh id interdum. Phasellus enim eros, efficitur et tincidunt id, dictum ac nisi. Nam sed dapibus lorem. Mauris consectetur libero et felis consectetur bibendum vehicula non dui. Cras augue massa, accumsan dapibus ligula tincidunt, interdum viverra tellus. Mauris lobortis pharetra augue, ac dignissim magna iaculis sed.</p>
-            <a class="button" href="#">更多</a>
+      <?php if (have_posts(  )) : ?>
+        <?php while(have_posts(  )) : the_post(  ); ?>
+          <article class="post">
+            <h2><?php the_title(  ); ?></h2>
+            <p class="meta">
+              <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' )); ?>"><?php the_author(  ); ?></a> 
+              编辑于 <?php the_time( 'Y-m-d, G:i' ); ?> |
+              <?php
+                $categories = get_the_category(  );
+                $separator = ", ";
+                $output = '';
+
+                if ($categories) {
+                  foreach ($categories as $category) {
+                    $output .= '<a href="'.get_category_link($category->term_id).'">'.
+                    $category->cat_name.'</a>'.$separator;
+                  }
+                }
+
+                echo trim($output, $separator);
+                
+              ?>
+            </p>
+            <?php the_excerpt(  ); ?>
+            <a class="button" href="<?php the_permalink(  ); ?>">更多</a>
           </article>
+        <?php endwhile; ?>
+      <?php else : ?>
+        <?php echo wpautop( 'Sorry, no posts were found' ); ?>
+      <?php endif; ?>
     </div>
 
     <div class="side">

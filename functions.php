@@ -8,4 +8,10 @@
     ) );
   }
   add_action( 'after_setup_theme', 'adv_theme_support' );
+
+  // Excerpt Length
+  function adv_set_excerpt_length(){
+    return 25;
+  }
+  add_filter( 'excerpt_length', adv_set_excerpt_length );
 ?>

@@ -142,6 +142,10 @@ article.post .meta{
   padding:7px;
 }
 
+article.post .meta a{
+ color:#fff;
+}
+
 .button{
   background:#009acd;
   color:#fff;

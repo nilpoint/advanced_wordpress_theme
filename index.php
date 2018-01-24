@@ -54,6 +54,11 @@
                 
               ?>
             </p>
+            <?php if( has_post_thumbnail(  ) ) : ?>
+                <div class="post-thumbnail">
+                  <?php the_post_thumbnail(  ); ?>
+                </div>
+            <?php endif; ?>
             <?php the_excerpt(  ); ?>
             <a class="button" href="<?php the_permalink(  ); ?>">更多</a>
           </article>

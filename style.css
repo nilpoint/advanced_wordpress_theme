@@ -146,6 +146,15 @@ article.post .meta a{
  color:#fff;
 }
 
+article.post-aside small{
+  font-weight: bold;
+}
+
+article.post-aside .well{
+  background:#e0eefc;
+  padding:10px;
+}
+
 article .post-thumbnail img{
   width: 100%;
   height: auto;

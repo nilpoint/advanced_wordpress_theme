@@ -1,3 +1,11 @@
+<?php if (is_search(  )||is_archive(  )) : ?>
+<div class="archive-post">
+    <h4>
+    <a href="<?php the_permalink(  ); ?>"><?php the_title(  ); ?></a>
+    </h4>
+    <p>发布于：<?php the_time( 'Y-m-d G:i' ); ?></p>
+</div>
+<?php else : ?>
 <article class="post">
     <h2><?php the_title(  ); ?></h2>
     <p class="meta">
@@ -27,3 +35,4 @@
     <?php the_excerpt(  ); ?>
     <a class="button" href="<?php the_permalink(  ); ?>">更多</a>
 </article>
+<?php endif; ?>

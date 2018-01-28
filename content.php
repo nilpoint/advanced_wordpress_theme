@@ -17,10 +17,10 @@
         $output = '';
 
         if ($categories) {
-        foreach ($categories as $category) {
-            $output .= '<a href="'.get_category_link($category->term_id).'">'.
-            $category->cat_name.'</a>'.$separator;
-        }
+            foreach ($categories as $category) {
+                $output .= '<a href="'.get_category_link($category->term_id).'">'.
+                $category->cat_name.'</a>'.$separator;
+            }
         }
 
         echo trim($output, $separator);
@@ -32,7 +32,11 @@
         <?php the_post_thumbnail(  ); ?>
         </div>
     <?php endif; ?>
-    <?php the_excerpt(  ); ?>
-    <a class="button" href="<?php the_permalink(  ); ?>">更多</a>
+    <?php if (is_single(  )) : ?>
+      <?php the_content(  ); ?>
+    <?php else : ?>
+      <?php the_excerpt(  ); ?>
+      <a class="button" href="<?php the_permalink(  ); ?>">更多</a>
+    <?php endif; ?>    
 </article>
 <?php endif; ?>

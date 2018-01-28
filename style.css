@@ -155,6 +155,11 @@ article.post-aside .well{
   padding:10px;
 }
 
+article.post-link .well{
+  background: #f4f4f4;
+  padding:10px;
+}
+
 article .post-thumbnail img{
   width: 100%;
   height: auto;

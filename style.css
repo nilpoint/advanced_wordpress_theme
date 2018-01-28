@@ -160,6 +160,13 @@ article.post-link .well{
   padding:10px;
 }
 
+article.post-gallery{
+  background: #333;
+  color:#fff;
+  padding: 5px 10px;
+  margin-top:5px;
+}
+
 article .post-thumbnail img{
   width: 100%;
   height: auto;

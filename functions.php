@@ -12,6 +12,9 @@
   }
   add_action( 'after_setup_theme', 'adv_theme_support' );
 
+  // Post Format Support
+  add_theme_support( 'post-formats', array('aside', 'gallery', 'link') );
+
   // Excerpt Length
   function adv_set_excerpt_length(){
     return 25;

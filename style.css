@@ -191,6 +191,14 @@ article .post-thumbnail img{
   padding:0;
 }
 
+/* Page */
+.phone{
+  background:#f4f4f4;
+  border: 1px solid #ccc;
+  padding:8px;
+  font-weight: bold;
+}
+
 /* Footer */
 footer.main-footer{
   margin-top:40px;

@@ -20,4 +20,11 @@
     return 25;
   }
   add_filter( 'excerpt_length', adv_set_excerpt_length );
+
+  function page_is_parent() {
+    global $post;
+
+    $pages = get_pages( 'child_of=' . $post->ID );
+    return count($pages);
+  }
 ?>

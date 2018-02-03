@@ -23,6 +23,7 @@
               <?php wp_list_pages( $args ); ?>
             </ul>
           </nav>
+          <div class="clr"></div>
           <?php endif; ?>
           <h2><?php the_title(  ); ?></h2>
           <?php the_content(  ); ?>

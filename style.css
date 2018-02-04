@@ -233,6 +233,17 @@ article .post-thumbnail img{
   font-weight: bold;
 }
 
+/* Sidebar */
+.side-widget{
+  margin-bottom: 20px;
+}
+
+.side-widget li{
+  list-style: none;
+  line-height: 2.1em;
+  border-bottom: 1px dotted #ccc;
+}
+
 /* Footer */
 footer.main-footer{
   margin-top:40px;

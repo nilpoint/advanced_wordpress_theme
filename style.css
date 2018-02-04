@@ -244,6 +244,17 @@ article .post-thumbnail img{
   border-bottom: 1px dotted #ccc;
 }
 
+.showcase{
+  background:#e0eefc;
+  padding:40px;
+  margin-bottom:30px;
+  text-align: center;
+}
+
+.showcase h1{
+  text-align: center;
+}
+
 /* Footer */
 footer.main-footer{
   margin-top:40px;

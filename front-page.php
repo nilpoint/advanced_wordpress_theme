@@ -1,6 +1,9 @@
 <?php get_header(  ); ?>
 
 <div class="container content">
+  <?php if(is_active_sidebar( 'showcase' )) : ?>
+    <?php dynamic_sidebar( 'showcase' ); ?>
+  <?php endif; ?>
   <div class="block">
     <?php if (have_posts(  )) : ?>
       <?php while(have_posts(  )) : the_post(  ); ?>

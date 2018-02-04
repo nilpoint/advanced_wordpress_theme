@@ -255,6 +255,25 @@ article .post-thumbnail img{
   text-align: center;
 }
 
+.box{
+  width:32%;
+  float:left;
+  padding:0 6px;
+}
+
+.box h3{
+  text-align: center;
+  background:#009acd;
+  padding:5px;
+  color:#fff;
+}
+
+.side-widget li, .box li{
+  list-style: none;
+  line-height: 2.1em;
+  border-bottom: 1px dotted #ccc;
+}
+
 /* Footer */
 footer.main-footer{
   margin-top:40px;
